@@ -3,36 +3,33 @@ pipeline {
   stages {
     stage('Init') {
       steps {
-        echo 'eKYC service'
+        echo 'Hello World'
       }
-    } 
-    stage('Build') { 
-      
-        steps {
-              sh 'pwd' 
-              dir('ekyc-eureka-server-master'){ 
-
-              sh 'pwd'
-              }   
-             
-              sh 'mvn -f ./ekyc-eureka-server-master/pom.xml -B -DskipTests clean package' 
-            }
-        }
-  }
-
-                sh 'pwd'
-              }   
-             
-              sh 'mvn -f ./ekyc-eureka-server-master/pom.xml -B -DskipTests clean package' 
-        }
     }
-     stage('Deploy') {
+    stage('Build') {
+      steps {
+        sh 'mvn -B -DskipTests clean package'
+      }
+    }
+    stage('Test') {
+      steps {
+        echo '222'
+        sh 'mvn test'
+        
+      }
+      post {
+        always {
+          junit 'target/surefire-reports/*.xml'
+        }
+      }
+    }
+    stage('Deploy') {
       steps {
         echo 'Deploying'
         sh './jenkins/scripts/deliver.sh'
+        
       }
     }
     
-   }
-
+  }
 }
