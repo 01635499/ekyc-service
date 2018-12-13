@@ -3,13 +3,26 @@ pipeline {
   stages {
     stage('Init') {
       steps {
-        echo 'Hello World'
+        echo 'eKYC service'
       }
     } 
     stage('Build') { 
-            steps {
-                sh 'mvn -B -DskipTests clean package' 
-            }
+      
+        steps {
+              sh 'pwd' 
+              dir('ekyc-eureka-server-master'){ 
+                sh 'pwd'
+              }   
+             
+              sh 'mvn -f ./ekyc-eureka-server-master/pom.xml -B -DskipTests clean package' 
         }
-  }
+    }
+     stage('Deploy') {
+      steps {
+        echo 'Deploying'
+        sh './jenkins/scripts/deliver.sh'
+      }
+    }
+    
+   }
 }
