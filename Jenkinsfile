@@ -11,7 +11,7 @@ pipeline {
         steps {
               sh 'pwd' 
               dir('ekyc-eureka-server-master'){ 
-<<<<<<< HEAD
+
               sh 'pwd'
               }   
              
@@ -19,7 +19,7 @@ pipeline {
             }
         }
   }
-=======
+
                 sh 'pwd'
               }   
              
@@ -34,5 +34,5 @@ pipeline {
     }
     
    }
->>>>>>> origin/master
+
 }
