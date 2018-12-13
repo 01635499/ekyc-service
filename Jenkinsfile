@@ -8,7 +8,8 @@ pipeline {
     } 
     stage('Build') { 
             steps {
-              sh 'cd ekyc-eureka-server-master'
+              sh 'pwd' 
+              sh 'cd ./ekyc-eureka-server-master'
               sh 'mvn -B -DskipTests clean package' 
             }
         }
