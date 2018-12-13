@@ -13,6 +13,7 @@ pipeline {
               dir('ekyc-eureka-server-master'){ 
               sh 'pwd'
               }   
+              sh 'mvn clean install'
               sh 'mvn -B -DskipTests clean package' 
             }
         }
