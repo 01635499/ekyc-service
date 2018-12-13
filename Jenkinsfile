@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Init') {
       steps {
-        echo 'Hello World'
+        echo 'eKYC service'
       }
     } 
     stage('Build') { 
