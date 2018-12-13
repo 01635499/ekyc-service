@@ -13,8 +13,8 @@ pipeline {
               dir('ekyc-eureka-server-master'){ 
               sh 'pwd'
               }   
-              sh 'mvn clean install'
-              sh 'mvn -f /ekyc-eureka-server-master/pom.xml -B -DskipTests clean package' 
+             
+              sh 'mvn -f ./ekyc-eureka-server-master/pom.xml -B -DskipTests clean package' 
             }
         }
   }
