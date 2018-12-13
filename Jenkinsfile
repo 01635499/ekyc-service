@@ -14,7 +14,7 @@ pipeline {
               sh 'pwd'
               }   
               sh 'mvn clean install'
-              sh 'mvn -B -DskipTests clean package' 
+              sh 'mvn -f /ekyc-eureka-server-master/pom.xml -B -DskipTests clean package' 
             }
         }
   }
